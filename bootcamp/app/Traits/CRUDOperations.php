@@ -3,6 +3,8 @@
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Services\UploadService;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 trait CRUDOperations
 {

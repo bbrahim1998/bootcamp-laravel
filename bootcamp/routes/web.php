@@ -7,10 +7,13 @@ use App\Http\Controllers\WineController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    #ray()->host('127.0.0.1')->port(8000)->send('Prueba de conexión manual a Buggregator');
+    ray("Prueba de conexión a Buggregator");
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
+    ray("Hola desde el archivo web.php");
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
