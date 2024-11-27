@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Wine;
 use App\Http\Controllers\Controller;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use Illuminate\View\View;
+use App\Http\Requests\CategoryRequest;
+use Illuminate\Http\RedirectResponse;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,7 @@ class CategoryController extends Controller
      }
      public function index(): View
      {
-        /*Este código se creó para probar la herramienta de buggregator, pero buggreegator no funciona
+        /*ste código se creó para probar la herramienta de buggregator, pero buggreegator no funciona
         $categories = $this->repository->paginate(
             counts: ["wines"],
         );
@@ -35,5 +37,11 @@ class CategoryController extends Controller
             'method' => 'POST',
             'submit' =>'Crear',
         ]);
+     }
+     public function store(CategoryRequest $request): RedirectResponse
+     {
+
+        $this->repository->create($request->validated());
+        return redirect()->route("categories.index");
      }
 }

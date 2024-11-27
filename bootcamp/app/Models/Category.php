@@ -13,7 +13,7 @@ class Category extends Model
     use HasSlug;
 
     //proteger app ante asignación masiva de laravel
-    protected $filable = [
+    protected $fillable = [
         "name",
         "slug",
         "description",

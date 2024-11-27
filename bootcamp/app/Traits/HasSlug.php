@@ -3,6 +3,8 @@
 namespace App\Traits;
 
 use function DI\string;
+use Illuminate\Support\Str;
+
 
 trait HasSlug
 {
